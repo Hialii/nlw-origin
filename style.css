@@ -163,7 +163,7 @@ nav ul li a:hover::after {
 
 }
 
-nav.menu {
+nav .menu {
     opacity: 0; /*invisivel, mas ainda dá click*/
     visibility: hidden;/*deixa escondido*/
 }
@@ -191,8 +191,6 @@ nav.show ul.grid{
     gap: 4rem;
 
 }
-
-
 
 /*==== HOME =======*/
 
