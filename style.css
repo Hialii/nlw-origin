@@ -1,0 +1,175 @@
+/* position:relative When we use this property/value we can put the bullets in the right place.
+   overflow:hidden Resolves the scrolling, making the element not "overflowing" its box 
+   rem= %16*/  
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@700;900&display=swap');
+
+/*==== RESET =======*/
+* {
+    margin: 0;
+    padding: 0; /*preencimento*/
+    box-sizing: border-box;/* tamanho da caiXa é contado a partir da borda*/
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%; /*largura*/
+    height: auto; /*altura*/
+}
+
+/*==== VARIABLES =======*/
+:root {
+    --header-height: 4.5rem;
+
+    /*colors*/
+    --hue: 157;/*permite mudar as cores*/
+    /* HSL color mode */
+    --base-color: hsl(var(--hue) 36% 57%);
+    --base-color-second: hsl(var(--hue) 65% 88%);
+    --base-color-alt: hsl(var(--hue) 57% 53%);
+    --title-color: hsl(var(--hue) 41% 10%);
+    --text-color: hsl(0 0% 46%);
+    --text-color-light: hsl(0 0% 98%);
+    --body-color: hsl(0 0% 98%);
+
+}
+
+/*==== BASE =======*/
+body {
+    font: 400 1rem "DM Sans", sans-serif;
+    color: var(--text-color);
+    background: var(--body-color);
+    -webkit-font-smoothing: antialiased; /*afina a letra*/
+}
+
+h1 {
+    font: 700 1,85rem "Poppins", sans-serif;
+    color: var(--title-color);
+    -webkit-font-smoothing: auto;
+}
+
+.button {
+    background-color: var(--base-color);
+    color: var(--text-color-light);
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    font: 500 1rem 'DM Sans', sans-serif;
+    transition: background 0.3s;
+}
+
+.button:hover {
+   background: var(--base-color-alt);
+}
+
+.divider-1{
+    height: 1px;
+    background: linear-gradient(270deg, hwb(var(--hue) 41% 27%) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%)
+}
+
+/*==== LAYOUT =======*/
+.container{
+    /*margin: 0 auto; (em cima e embaixo) auto:computador preenche com o que ele tiver*/
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid {
+    display: grid;/*habilita novas funcionalidades*/
+    gap: 1.5rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+#header {
+    border-bottom: 1px solid #e4e4e4;/*borda abaixo*/
+    margin-bottom: 2rem; /*margem abaixo*/ 
+    display: flex; 
+    
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 100;/*positivo em cima , negativo em baixo*/
+    background-color: var(--body-color);
+}
+
+nav {
+    height: var(--header-height);
+    display: flex; /*flex=elemento ao lado do outro*/
+    align-items: center; /*alinha o texto*/
+    justify-content: space-between; /*justifica o contúdo*/
+    width: 100%;
+}
+
+.logo {
+    font: 700 1.31rem 'Poppins', sans-serif;
+    color: var(--title-color);
+}
+
+.logo span {
+    color: var(--base-color);
+}
+
+main {
+    margin-top: var(--header-height);
+
+}
+
+/*==== HOME =======*/
+
+#home {
+    overflow: hidden;
+}
+#home .container {
+    margin: 0;  
+}
+
+#home .image {
+    position: relative;
+}
+
+#home .image img {
+    position: relative;
+    right: 2.93rem;
+
+}
+
+#home .image::before { /*elemento fantasma antes do conteúdo*/
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -16.8%;
+    left: 16.7%;
+    z-index: 0; /*z=eixo de profundidade*/
+
+}
+#home .image img, #home .image::before {
+    border-radius: 0.25rem;
+}
+
+#home .text {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;  
+    text-align: center;
+}
+
+#home .text h1 {
+    margin-bottom: 1rem;
+
+}
+
+#home .text p {
+    margin-bottom: 2rem;
+    max-width: 100%;/*largura máxima*/
+}
