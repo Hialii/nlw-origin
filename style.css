@@ -12,6 +12,10 @@
     box-sizing: border-box;/* tamanho da caiXa é contado a partir da borda*/
 }
 
+ul {
+    list-style: none;
+}
+
 a {
     text-decoration: none;
 }
@@ -46,8 +50,8 @@ body {
     -webkit-font-smoothing: antialiased; /*afina a letra*/
 }
 
-h1 {
-    font: 700 1,85rem "Poppins", sans-serif;
+.title {
+    font: 700 1.85rem "Poppins", sans-serif;
     color: var(--title-color);
     -webkit-font-smoothing: auto;
 }
@@ -102,13 +106,12 @@ h1 {
     background-color: var(--body-color);
 }
 
-nav {
-    height: var(--header-height);
-    display: flex; /*flex=elemento ao lado do outro*/
-    align-items: center; /*alinha o texto*/
-    justify-content: space-between; /*justifica o contúdo*/
-    width: 100%;
+main {
+    margin-top: calc( var(--header-height) + 2rem);
+
 }
+
+/*==== LOGO =======*/
 
 .logo {
     font: 700 1.31rem 'Poppins', sans-serif;
@@ -119,10 +122,77 @@ nav {
     color: var(--base-color);
 }
 
-main {
-    margin-top: var(--header-height);
+/*==== NAV =======*/
+
+nav {
+    height: var(--header-height);
+    display: flex; /*flex=elemento ao lado do outro*/
+    align-items: center; /*alinha o texto*/
+    justify-content: space-between; /*justifica o contúdo*/
+    width: 100%;
+}
+
+nav ul li {
+    text-align: center;/*alinha o texto*/
+}
+
+nav ul li a {
+    transition: 0.2s;
+    position: relative;
+}
+
+nav ul li a:hover {/*quando pasar o mause muda*/
+   color: var(--base-color);
+}
+
+nav ul li a::after { /*após*/
+    content: "";
+    width: 0;
+    height: 2px;
+    background: var(--base-color);
+
+    position: absolute; 
+    left: 0;
+    bottom: -1.5rem;
+    transition: width 0.2s; 
 
 }
+
+nav ul li a:hover::after {
+    width: 100%;
+
+}
+
+nav.menu {
+    opacity: 0; /*invisivel, mas ainda dá click*/
+    visibility: hidden;/*deixa escondido*/
+}
+
+/* MOSTRAR MENU */
+nav.show .menu {
+    opacity: 1;
+    visibility: visible;
+
+    background: var(--body-color);
+    height: 100vh;/*vh = altura do dispositivo*/
+    width: 100vh;/*vh = largura do dispositivo*/
+
+    position: fixed;/*fixa na página*/
+    left: 0;
+    top: 0;
+}
+
+nav.show .menu {
+    display: grid;
+    place-content: center;/*coloca os elementos no meio da tela*/
+}
+
+nav.show ul.grid{
+    gap: 4rem;
+
+}
+
+
 
 /*==== HOME =======*/
 
