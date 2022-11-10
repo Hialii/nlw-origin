@@ -39,10 +39,13 @@ img {
     --text-color: hsl(0 0% 46%);
     --text-color-light: hsl(0 0% 98%);
     --body-color: hsl(0 0% 98%);
-
 }
 
 /*==== BASE =======*/
+
+html {
+    scroll-behavior: smooth;/*transição de paginas mais leve*/
+}
 body {
     font: 400 1rem "DM Sans", sans-serif;
     color: var(--text-color);
@@ -74,8 +77,14 @@ body {
 
 .divider-1{
     height: 1px;
-    background: linear-gradient(270deg, hwb(var(--hue) 41% 27%) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%)
+    background: linear-gradient(270deg, hwb(var(--hue) 41% 27%), hsla(var(--hue), 65%, 88%, 0.34))
 }
+
+.divider-2{
+    height: 1px;
+    background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34), hwb(var(--hue) 41% 27%))
+}
+
 
 /*==== LAYOUT =======*/
 .container{
@@ -93,6 +102,18 @@ body {
     padding: 5rem 0;
 }
 
+.section .title {
+    margin-bottom: 1rem;
+}
+
+.section header {
+    margin-bottom: 4rem;
+}
+
+.section header strong {
+    color: var(--base-color);
+}
+
 #header {
     border-bottom: 1px solid #e4e4e4;/*borda abaixo*/
     margin-bottom: 2rem; /*margem abaixo*/ 
@@ -106,13 +127,17 @@ body {
     background-color: var(--body-color);
 }
 
+#header.scroll {
+    box-shadow: 0/*eixo x*/ 0/*eixo y*/ 12px/*espalhamento*/ rgba(0, 0, 0, 0.1);
+
+}
+
 main {
     margin-top: calc( var(--header-height) + 2rem);
 
 }
 
 /*==== LOGO =======*/
-
 .logo {
     font: 700 1.31rem 'Poppins', sans-serif;
     color: var(--title-color);
@@ -123,7 +148,6 @@ main {
 }
 
 /*==== NAV =======*/
-
 nav {
     height: var(--header-height);
     display: flex; /*flex=elemento ao lado do outro*/
@@ -154,18 +178,23 @@ nav ul li a::after { /*após*/
     position: absolute; 
     left: 0;
     bottom: -1.5rem;
-    transition: width 0.2s; 
-
+    transition: width 0.2s;
 }
 
 nav ul li a:hover::after {
     width: 100%;
-
 }
 
 nav .menu {
     opacity: 0; /*invisivel, mas ainda dá click*/
     visibility: hidden;/*deixa escondido*/
+    top: -20rem;
+    transition: .2s;/*transição*/
+
+}
+
+nav .menu ul {
+    display: none;/*faz com que o menu não pisque antes de aparecer e só apareça quando clicado*/
 }
 
 /* MOSTRAR MENU */
@@ -180,11 +209,13 @@ nav.show .menu {
     position: fixed;/*fixa na página*/
     left: 0;
     top: 0;
-}
 
-nav.show .menu {
     display: grid;
     place-content: center;/*coloca os elementos no meio da tela*/
+}
+
+nav.show .menu ul {
+    display: grid;
 }
 
 nav.show ul.grid{
@@ -203,17 +234,19 @@ nav .icon-close {
     opacity: 0;
 
     position: absolute;
+    top: -1.5rem; /*icon vem de cima*/
     right: 1.5rem;
+
+    transition: .2s;
 }
 
 nav.show div.icon-close {
     visibility: visible;
     opacity: 1;
+    top: 1.5rem;/*fica no local certo*/
 }
 
-
 /*==== HOME =======*/
-
 #home {
     overflow: hidden;
 }
@@ -228,7 +261,6 @@ nav.show div.icon-close {
 #home .image img {
     position: relative;
     right: 2.93rem;
-
 }
 
 #home .image::before { /*elemento fantasma antes do conteúdo*/
@@ -260,4 +292,67 @@ nav.show div.icon-close {
 #home .text p {
     margin-bottom: 2rem;
     max-width: 100%;/*largura máxima*/
+}
+
+/*==== SECTION ABOUT =======*/
+#about {
+    background: #fff;
+}
+
+#about .container {
+    margin: 0;  
+}
+
+#about .image {
+    position: relative;
+}
+
+#about .image::before { /*elemento fantasma antes do conteúdo*/
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0; /*z=eixo de profundidade*/
+}
+
+#about .image img {
+    position: relative;
+ }
+
+#about .image img, #home .image::before {
+        border-radius: 0.25rem;
+ }
+
+ #about .text {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;  
+ }
+
+/*==== SECTION SERVICES =======*/
+
+.cards.grid {
+    gap: 1.5rem;
+}
+
+.card {
+    padding: 3.625rem 2rem;
+    box-shadow: 0px 0px 12px #e4e4e4;
+    border-bottom: 0.25rem solid var(--base-color);
+    border-radius: .25rem .25rem 0 0 ;
+    text-align: center;
+}
+
+.card i {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 5rem;
+    color: var(--base-color);
+}
+
+.card .title {
+    font: 1.5rem;
+    margin-bottom: 0.72rem;
 }
