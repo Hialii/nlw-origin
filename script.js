@@ -18,18 +18,42 @@ for(const link of links) {
 }
 
 //mudar o header da página quando der o scroll
-const header = document.querySelector('#header')
-const navHeight = header.offsetheigth //deslocamento da altura 
+// const header = document.querySelector('#header')
+// const navHeight = header.offsetHeigth //deslocamento da altura 
 
+// //não está funcionando
+// function changeHeaderWhenScroll() {
+//     if(window.scrollY >= navHeight){
+//         //scroll é maior que altura do header
+//         header.classList.add('scroll')
+//     } else {
+//         //menor que a altura do header 
+//         header.classList.remove('scroll')
+//     }
+// }
 
-//não está funcionando 
-window.addEventListener('scroll', function() {
-    if(window.scrollY >= navHeight){ //scroll maior ou igual a altura da navegação
-        //scroll é maior que a altura do header
-        header.classList.add('scroll') // se a classe for maior adiciona o scroll
-    } else {
-         //menor que a altura do header
-        header.classList.remove('scroll') //se a classe for menor remove o scroll
-     }
-
+/* Testimonials carousel slider swiper*/ 
+const swiper = new Swiper('.swiper', {
+    slidesPerview: 1,
+    pagination: {
+        el: '.swiper-pagination'
+    },
+    mousewheel: true,
+    keyboard: true,
 })
+
+/*ScrollReveal: Mostrar elementos quando der scroll na página*/ 
+const scrollReveal = ScrollReveal({
+    origin: 'top',
+    distance: '30px',
+    duration: 700,
+    reset: 'true'
+})
+
+scrollReveal.reveal(
+    `#home .image, #home .text,
+    #about .image, #about .text,
+    #services header, #services .card,
+    #testimonials header, #testimonials .testmonials,
+    #contact .text, #contact .links`, {interval: 100})
+    

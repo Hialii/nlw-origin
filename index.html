@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OriginSix</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/icomoon (2)/style.css">
+   
+    <!--SWIPER-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
+    <!--SCROLLREVEAL-->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js" defer></script>
 
 </head>
 <body>
     <header id="header" class="scroll" >
-
-        <nav class="container">
+             <nav class="container">
             <a class="logo" href="#">beauty<span>salon</span>.</a>
             <div class="menu">
                 <ul class="grid">
@@ -32,7 +37,9 @@
        
     </header>
     <main>
-        <section class="section" id="home">
+
+          <!--HOME-->
+         <section class="section" id="home">
             <div class="container grid">
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Mulher trabalhando no salão">
@@ -46,7 +53,8 @@
         </section>
 
         <div class="divider-1"></div>
-
+       
+        <!--ABOUT-->
         <section class="section" id="about">
         <div class="container grid"></div>
         <div class="image">
@@ -60,10 +68,11 @@
             <br><!--quebra de linha-->
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, ut ipsam consectetur quidem nam esse impedit ab, perspiciatis odio repellat officiis inventore corrupti repudiandae aperiam tempora alias error iure sint.</p>
         </div>
-    </section>
+        </section>
 
-    <div class="divider-2"></div>
-        
+         <div class="divider-2"></div>
+       
+        <!--SERVICES-->
         <section class="section" id="services">
             <div class="container grid">
            <header>
@@ -90,6 +99,84 @@
             </div>
         </div>
         </section>
+
+        <div class="divider-1"></div>
+        
+        <!--TESTIMONIALS-->
+        <section class="section" id="testimonials">
+            <div class="container">
+                <header>
+                    <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+                </header>
+                <div class="testimonials swiper">
+                    <div class="swiper-wrapper">
+                        <div class="testimonial swiper-slide">
+                            <blockquote>
+                                <p>
+                                    <span>&ldquo;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis sint mollitia eius! Quas ducimus error, voluptatibus sapiente ab veritatis quia quam, quaerat id dolorum, totam expedita velit voluptatum beatae!
+                                </p>
+                                <cite>
+                                    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Foto de Wanessa Souza">
+                                    Wanessa Souza
+                                </cite><!--tag de citação-->
+                            </blockquote>
+                        </div>
+    
+                        <div class="testimonial swiper-slide">
+                            <blockquote>
+                                <p>
+                                    <span>&ldquo;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis sint mollitia eius! Quas ducimus error, voluptatibus sapiente ab veritatis quia quam, quaerat id dolorum, totam expedita velit voluptatum beatae!
+                                </p>
+                                <cite>
+                                    <img src="https://randomuser.me/api/portraits/women/76.jpg" alt="Foto de  Amanda Bueno ">
+                                    Amanda Bueno 
+                                </cite><!--tag de citação-->
+                            </blockquote>
+                        </div>
+    
+                        <div class="testimonial swiper-slide">
+                            <blockquote>
+                                <p>
+                                    <span>&ldquo;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam debitis sint mollitia eius! Quas ducimus error, voluptatibus sapiente ab veritatis quia quam, quaerat id dolorum, totam expedita velit voluptatum beatae!
+                                </p>
+                                <cite>
+                                    <img src="https://randomuser.me/api/portraits/women/71.jpg" alt="Foto de Franciele Venega">
+                                    Franciele Venega
+                                </cite><!--tag de citação-->
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+              
+                </div>
+            </div>
+        </section>
+
+        <div class="divider-2"></div>
+
+        <!--CONTACT-->
+        <section class="section" id="contact">
+            <div class="container grid">
+                <div class="text">
+                    <h2 class="title">Entre em contato com a gente!</h2>
+                    <p>Entre em contato com a Beautysalon, queremos tirar suas dúvidas, ouvir suas críticas e sugestões.</p>
+                    <a href=" https://api.whatsapp.com/send?+5577999854625&text=Oi! Gostaria de agendar um horário" class="button" target="_blank"> <i class="icon-whatsapp" ></i> Entrar em contato</a><!--add um whatsapp-->
+                </div>
+            
+
+            
+
+            <div class="links">
+                <ul class="grid">
+                    <li><i class="icon-phone"></i>77 999854625</li>
+                    <li><i class="icon-map-pin"></i>R. Amauri Souza, 346</li>
+                    <li><i class="icon-mail"></i>contato@beautysalon.com</li>
+                </ul>
+            </div>
+         </div>
+        </section>
+
+        
     </main>
 
 </body>

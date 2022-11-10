@@ -356,3 +356,96 @@ nav.show div.icon-close {
     font: 1.5rem;
     margin-bottom: 0.72rem;
 }
+
+/*==== SECTION TESTIMONIALS =======*/
+#testimonials {
+    background: #fff;
+}
+
+#testimonials container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#testimonials header {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0 ;
+}
+
+#testimonials blockquote {
+    padding: 2rem;
+    box-shadow: 0px 0px 12px #e4e4e4;
+    border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+    position: relative;
+    text-indent: 1.875rem; /*indentação, espaço para ocmeçar o paragráfo*/
+    margin-bottom: 1.5rem;
+    color: var(--title-color);
+}
+
+
+#testimonials blockquote p span {
+    font: 700 2.5rem serif; /*serif é uma classe de fonte, mudou as aspas*/
+    position: absolute; 
+    top: -0.375rem;
+    left: -1.875rem;
+    color: var(--base-color);
+}
+
+#testimonials cite {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+}
+
+#testimonials cite img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;/*encaixar a imagem em todo o espaço que tiver*/
+    clip-path: circle(); /*cria uma maácara circular na imagem*/
+    margin-right: 0.5rem; /*margem a direita*/
+}
+
+/*======SWIPER===========*/
+.swiper-slide {
+    height: auto;
+    padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet-active { /*bolinha da paginação*/
+    background: var(--base-color);
+}
+
+/*======CONTACT===========*/
+
+ #contact .grid {
+    gap: 4rem;
+}  
+
+#contact .text p {
+    margin-bottom: 2rem;
+
+}
+
+#contact .button i ,
+#contact ul li i  {
+    font-size: 1.5rem;
+    margin-right: 0.625rem;
+}
+#contact il.grid {
+    gap: 2rem;
+}
+
+#contact ul li {
+    display: flex;
+    align-items: center;
+}
+
+#contact ul li i {
+    color: var(--base-color);
+}
+
+
