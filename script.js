@@ -17,20 +17,19 @@ for(const link of links) {
     })
 }
 
-//mudar o header da página quando der o scroll
-// const header = document.querySelector('#header')
-// const navHeight = header.offsetHeigth //deslocamento da altura 
-
-// //não está funcionando
-// function changeHeaderWhenScroll() {
-//     if(window.scrollY >= navHeight){
-//         //scroll é maior que altura do header
-//         header.classList.add('scroll')
-//     } else {
-//         //menor que a altura do header 
-//         header.classList.remove('scroll')
-//     }
-// }
+//mudar o header da página quando der o scroll não ta funcionando essa bosta
+ const header = document.querySelector('#header')
+ const navHeight = header.offsetHeigth //deslocamento da altura 
+ //não está funcionando
+function changeHeaderWhenScroll() {
+     if(window.scrollY >= navHeight){
+         //scroll é maior que altura do header
+         header.classList.add('scroll')
+     } else {
+        //menor que a altura do header 
+        header.classList.remove('scroll')
+     }
+ }
 
 /* Testimonials carousel slider swiper*/ 
 const swiper = new Swiper('.swiper', {
