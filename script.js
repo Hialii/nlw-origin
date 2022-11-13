@@ -20,7 +20,6 @@ for(const link of links) {
 //mudar o header da página quando der o scroll não ta funcionando essa bosta
  const header = document.querySelector('#header')
  const navHeight = header.offsetHeigth //deslocamento da altura 
- //não está funcionando
 function changeHeaderWhenScroll() {
      if(window.scrollY >= navHeight){
          //scroll é maior que altura do header
@@ -54,5 +53,16 @@ scrollReveal.reveal(
     #about .image, #about .text,
     #services header, #services .card,
     #testimonials header, #testimonials .testmonials,
-    #contact .text, #contact .links`, {interval: 100})
+    #contact .text, #contact .links, footer .brand, footer .social`, {interval: 100})
     
+
+ /*Botão voltar para o topo*/ 
+ const backToTopButton = document.querySelector(".top")
+ window.addEventListener("scroll", function() {
+    if (window.scrollY >= 560) {
+            backToTopButton.classList.add('show')
+        }else {
+            backToTopButton.classList.remove('show')
+        }
+    
+ })
