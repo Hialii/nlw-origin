@@ -39,6 +39,13 @@ img {
     --text-color: hsl(0 0% 46%);
     --text-color-light: hsl(0 0% 98%);
     --body-color: hsl(0 0% 98%);
+
+    /* fonts */
+    --title-font-size: 1.875rem;
+    --subtitle-font-size: 1rem ;
+
+    --title-font: 'Poppins', sans-serif;
+    --body-font: 'DM Sans', sans-serif;
 }
 
 /*==== BASE =======*/
@@ -47,14 +54,14 @@ html {
     scroll-behavior: smooth;/*transição de paginas mais leve*/
 }
 body {
-    font: 400 1rem "DM Sans", sans-serif;
+    font: 400 1rem var(--body-font), sans-serif;
     color: var(--text-color);
     background: var(--body-color);
     -webkit-font-smoothing: antialiased; /*afina a letra*/
 }
 
 .title {
-    font: 700 1.85rem "Poppins", sans-serif;
+    font: 700 var(--title-font-size) var(--title-font), sans-serif;
     color: var(--title-color);
     -webkit-font-smoothing: auto;
 }
@@ -67,7 +74,7 @@ body {
     align-items: center;
     padding: 0 2rem;
     border-radius: 0.25rem;
-    font: 500 1rem 'DM Sans', sans-serif;
+    font: 500 1rem var(--body-font), sans-serif;
     transition: background 0.3s;
 }
 
@@ -99,11 +106,15 @@ body {
 }
 
 .section {
-    padding: 5rem 0;
+    padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .title {
     margin-bottom: 1rem;
+}
+
+.section .subtitle {
+    font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -132,14 +143,11 @@ body {
 
 }
 
-main {
-    margin-top: calc( var(--header-height) + 2rem);
 
-}
 
 /*==== LOGO =======*/
 .logo {
-    font: 700 1.31rem 'Poppins', sans-serif;
+    font: 700 1.31rem var(--title-font), sans-serif;
     color: var(--title-color);
 }
 
@@ -427,7 +435,7 @@ nav.show div.icon-close {
 /*======CONTACT===========*/
 
  #contact .grid {
-    gap: 4rem;
+    gap: 2rem;
 }  
 
 #contact .text p {
@@ -458,6 +466,10 @@ footer {
     background: var(--base-color);
 }
 
+footer.section {
+    padding: 4rem 0;
+}
+
 footer .logo {
     display: inline-block; /*a tag tem display inline coloca o block para ativar o margim botttom*/
     margin-bottom: 1.5rem;
@@ -474,7 +486,7 @@ footer i {
 }
 
 footer .social a {
-   /* grid-auto-flow: column; grid é um display block, isso deixa os elemntos ao lado, faz colunas */
+   /* grid-auto-flow: column; grid é um display block, isso deixa os elemntos ao lado, faz colunas. coloca o width de fit-content = encaixe perfeito */
     margin-right: 2rem;
     transition: 0.3s;
     display: inline-block; /*diplay inline não aceita translateY*/
@@ -513,7 +525,132 @@ footer .social a:hover {
 }
 
 /*======RESPONSIVO=====*/
-@media () {
+/*extra large dvice: +1200*/
+@media (min-width: 1200px) {
+    /* reusable classes */
+    .container {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    main {
+        margin-top: var(--header-height);
+    }
+
+    .section {
+        padding: 10rem 0;
+    }
+
+    .section header,
+    #testimonials header {
+        max-width: 32rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button {
+        height: 3.125rem;
+    }
+
+    /* navigation */
+
+    nav .menu{
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+
+    nav .menu ul {
+        display: flex;
+        gap: 2rem;
+    }
+    nav .menu ul li a.title {
+        font: 400 1rem var(--body-color);
+    }  
+
+    nav .icon-menu {
+        display: none;
+    }
+
+    /*home*/
+    #home .container {
+        grid-auto-flow: column;
+        gap: 8rem;
+        justify-content: space-between;
+        margin: 0 auto; /*para se encaixar no meio*/
+    }
+
+    #home .image {
+        order: 1; /*ordem dos elementos para funcionar tem que estar dentro de uma caixa grid, flex*/
+    }
+
+    #home .text {
+        order: 0;
+        max-width: 24rem;
+        text-align: left;
+    }
+
+    /* about */
+    #about .container {
+        grid-auto-flow: column;
+       
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    /* services */
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;/*pega o espaço e divide em frações por iguais*/
+    }
+
+    .card {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    /* testimonials */
+    #testimonials .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* contact */
+    #contact .container {
+        grid-auto-flow: column;
+        align-items: center;
+
+    }
+
+    #contact .text {
+        max-width: 25rem;
+
+    }
+
+    /* footer */
+    footer .section {
+        padding: 3.75rem 0;
+    }
+
+    footer .container {
+        grid-auto-flow: column; /* faz colunas */
+        align-items: center; /* alinha os elementos ao eixo x */
+        justify-content: space-between; /* espaço entre os elementos*/
+    }
+
+    footer .logo {
+        font-size: 2.25rem;
+    }
+
+}
+
+/* large devices: +992 */
+@media (min-width: 992px) {
+    :root {
+        --title-font-size: 2.25rem;
+        --subtitle-font-size: 1.125rem;
+    }
     
 }
 

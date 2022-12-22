@@ -38,6 +38,12 @@ const swiper = new Swiper('.swiper', {
     },
     mousewheel: true,
     keyboard: true,
+    breakpoints: {
+        767: {
+          slidesPerView: 2,
+          setWrapperSize: true
+        }
+      } 
 })
 
 /*ScrollReveal: Mostrar elementos quando der scroll na página*/ 
@@ -65,4 +71,39 @@ scrollReveal.reveal(
             backToTopButton.classList.remove('show')
         }
     
+ })
+
+ /* Menu ativo conforme a seção visível na página */ 
+ const sections = document.querySelectorAll ('main section[id]')
+ function activateMenuAtCurrentSection () {
+
+    const checkpoint = window.pageYOffset = (window.innerHeight / 8) * 4 
+
+    for( const section of section) {
+        const sectionTop = sectionoffsetTop //topo da seção
+        const sectionHeight = section.offsetHeight //altura da seção
+        const sectionId = section.getAttribute('id') //id da seção
+
+        const checkpointStart = checkpoint >= sectionTop
+        const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+        if(checkpointStart && checkpointEnd) {
+            document
+            .querySelector ('nav ul li a[href*=' + sectionId + ']')
+            .classList.add('active')
+        } else {
+            document
+            .querySelector ('nav ul li a[href*=' + sectionId + ']')
+            .classList.remove('active')
+
+        }
+    }
+ }
+
+
+
+ //  When Scroll
+ window.addEventListener ("scroll", function () {
+    activateMenuAtCurrentSection ()
+
  })
